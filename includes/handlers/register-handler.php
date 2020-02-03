@@ -7,13 +7,13 @@ function sanitizeFormPassword($inputText) {
 
 function sanitizeFormUsername($inputText) {
 	$inputText = strip_tags($inputText);
-	$username = str_replace(" ", "", $username);
+	$inputText = str_replace(" ", "", $inputText);
 	return $inputText;
 }
 
 function sanitizeFormString($inputText) {
 	$inputText = strip_tags($inputText);
-	$username = str_replace(" ", "", $username);
+	$inputText = str_replace(" ", "", $inputText);
 	$inputText = ucfirst(strtolower($inputText));
 	return $inputText;
 }
