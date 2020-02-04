@@ -29,7 +29,7 @@ if(isset($_POST['registerButton'])) {
   $wasSuccessful = $account->register($username, $firstName, $lastName, $email, $password, $passwordConfirm);
 
   if($wasSuccessful) {
-    header('Location: index.php');
+    header("Location: index.php");
   }
 }
 

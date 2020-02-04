@@ -4,8 +4,12 @@ class Constants {
   public static $passwordNotAlphaNumeric = "Your password can only contain numbers and letters";
   public static $passwordCharacters = "Your password must be between 5 & 30 characters";
   public static $emailInvalid = "Your email isn't valid";
+  public static $emailTaken = "This email is already in use.";
   public static $lastNameCharacters = "Your last name must be between 2 & 25 characters";
   public static $firstNameCharacters = "Your first name must be between 2 & 25 characters";
   public static $usernameCharacters = "Your username must be between 5 & 25 characters";
+  public static $usernameTaken = "That username is already taken";
+
+  public static $loginFailed = "Your username or password was incorrect";
 }
 ?>

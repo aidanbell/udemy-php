@@ -5,7 +5,7 @@
 
 	$account = new Account($con);
 
-
+	include('includes/handlers/login-handler.php');
 	include('includes/handlers/register-handler.php');
 
 	function getInputValue($name) {
@@ -21,9 +21,10 @@
 <body>
 
 	<div id="inputContainer">
-		<form id="loginForm" action="login.php" method="POST">
+		<form id="loginForm" action="register.php" method="POST">
 			<h2>Login to your account</h2>
 			<p>
+				<?php echo $account->getError(Constants::$loginFailed); ?>
 				<label for="loginUsername">Username</label>
 				<input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. bartSimpson" required>
 			</p>
@@ -39,9 +40,10 @@
 
 	<div id="inputContainer">
 		<form id="registerForm" action="register.php" method="POST">
-			<h2>Login to your account</h2>
+			<h2>Create your account</h2>
 			<p>
 				<?php echo $account->getError(Constants::$usernameCharacters); ?>
+				<?php echo $account->getError(Constants::$usernameTaken); ?>
 				<label for="username">Username</label>
 				<input id="username" name="username" type="text" placeholder="e.g. bartSimpson" value="<?php getInputValue('username') ?>" required>
 			</p>
@@ -57,6 +59,7 @@
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$emailInvalid); ?>
+				<?php echo $account->getError(Constants::$emailTaken); ?>
 				<label for="email">Email</label>
 				<input id="email" name="email" type="email" placeholder="e.g. bart@simpson.com" value="<?php getInputValue('email') ?>" required>
 			</p>
@@ -66,12 +69,13 @@
 				<?php echo $account->getError(Constants::$passwordCharacters); ?>
 				<label for="password">Password</label>
 				<input id="password" name="password" type="password" required>
-			</p><p>
+			</p>
+			<p>
 				<label for="passwordConfirm">Confirm Password</label>
 				<input id="passwordConfirm" name="passwordConfirm" type="password" required>
 			</p>
 
-			<button type="submit" name="registerButton">Sign</button>
+			<button type="submit" name="registerButton">Sign up</button>
 
 		</form>
 	</div>
