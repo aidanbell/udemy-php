@@ -1,6 +1,9 @@
 <?php
 include('includes/config.php');
 
+// To manually logout
+// session_destroy();
+
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
 }

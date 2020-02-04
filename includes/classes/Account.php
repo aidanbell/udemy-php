@@ -86,7 +86,7 @@
       }
 
       $checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email='$em'");
-      if(mysqli_num_rows($checkUsernameQuery) != 0) {
+      if(mysqli_num_rows($checkEmailQuery)) {
         array_push($this->errorArray, Constants::$emailTaken);
         return;
       }
